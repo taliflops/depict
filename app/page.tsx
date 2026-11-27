@@ -1,69 +1,36 @@
+"use client"
+
 import Image from "next/image";
 import styles from "./page.module.css";
+import { useForm } from './contexts/FormContext';
 
 export default function Home() {
+  const { veredict, brand, setBrand, url, setUrl, prompt, setPrompt, onSubmit } = useForm()
+
   return (
     <div className={styles.page}>
-      <main className={styles.main}>
+      <div className={styles.header}>
         <Image
           className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
+          src="/depict.svg"
+          alt="Depict logo"
+          width={121}
+          height={28}
           priority
         />
-        <div className={styles.intro}>
-          <h1>
-            To get started, edit the{" "}
-            <code className={styles.code}>page.tsx</code> file.
-          </h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+      </div>
+      <div className={styles.form}>
+        <div className={styles.field}>
+          <label className={styles.label} htmlFor="brand">Brand</label>
+          <input className={styles.input} value={brand} onChange={({target}) => setBrand(target.value)} type="text" placeholder="Nike" name="brand" id="brand" />
+          <label className={styles.label} htmlFor="url">URL</label>
+          <input className={styles.input} value={url} onChange={({target}) => setUrl(target.value)} type="text" placeholder="https://www.nike.com" name="url" id="url" />
+          <label className={styles.label} htmlFor="prompt">Prompt</label>
+          <textarea className={styles.textArea} value={prompt} onChange={({target}) => setPrompt(target.value)} name="prompt" id="prompt" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dol..."></textarea>
+          <button className={styles.button} onClick={() => onSubmit()}>Check</button>
+          <div className={styles.veredict}>{veredict}</div>
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </div>
     </div>
   );
 }

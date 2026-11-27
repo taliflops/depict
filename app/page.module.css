@@ -1,23 +1,82 @@
 .page {
-  --background: #fafafa;
-  --foreground: #fff;
-
-  --text-primary: #000;
-  --text-secondary: #666;
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-  --button-secondary-border: #ebebeb;
-
   display: flex;
-  flex: 1;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-family: var(--font-geist-sans);
-  background-color: var(--background);
 }
 
+.header {
+  margin: 20px auto 20px 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffffff50;
+  margin-top: 20px;
+}
+
+.input,
+.textArea {
+  min-height: 50px;
+  border-radius: 20px;
+  outline: none;
+  border: none;
+  padding: 20px;
+  font-size: 16px;
+}
+
+.textArea {
+  min-height: 300px;
+}
+
+.input::placeholder,
+.textArea::placeholder {
+  opacity: 0.5;
+}
+
+.button {
+  margin: 30px auto;
+  padding: 16px;
+  outline: none;
+  border: none;
+  background-color: #ffffff80;
+  color: #000;
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 40px;
+  width: 40%;
+}
+
+.button:hover {
+  background-color: #ffffff95;
+}
+
+.button:active {
+  background-color: #ffffff;
+}
+
+.veredict {
+  text-align: center;
+  font-weight: bold;
+  font-size: 28px;
+}
+
+
+/* 
 .main {
   display: flex;
   flex: 1;
@@ -95,6 +154,7 @@ a.secondary {
 }
 
 /* Enable hover only on non-touch devices */
+/*
 @media (hover: hover) and (pointer: fine) {
   a.primary:hover {
     background: var(--button-primary-hover);
@@ -147,4 +207,4 @@ a.secondary {
   background: color-mix(in srgb, currentColor 8%, transparent);
   padding: 0.1em 0.4em;
   border-radius: 6px;
-}
+} */
